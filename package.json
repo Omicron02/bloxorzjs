@@ -1,0 +1,22 @@
+{
+  "name": "bloxorzjs",
+  "version": "1.0.0",
+  "description": "Create bloxorz on a website using js",
+  "main": "button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omicron02/BloxorzJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omicron02/BloxorzJS/issues"
+  },
+  "homepage": "https://github.com/Omicron02/BloxorzJS#readme",
+  "dependencies": {
+    "mongoose": "^6.0.10"
+  }
+}
