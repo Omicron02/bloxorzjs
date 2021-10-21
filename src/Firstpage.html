@@ -1,61 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
         <title>Bloxorz</title>
         <link rel="stylesheet" href="style.css" type="text/css">
         
+        <script src="vanilla-tilt.js"></script>
     </head>
-    <body>
+  <body>
+    
+    <img id="imagehead" src="Images/Bloxorz.gif" data-tilt><br><br><br>
     <div id="progressbar"></div>
     <div id="scrollpath"></div>
-    <section>
-            <h2>Lorem Ipsum</h2>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                velit esse cillum dolore eu fugiat nulla pariatur. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                velit esse cillum dolore eu fugiat nulla pariatur. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                velit esse cillum dolore eu fugiat nulla pariatur. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                velit esse cillum dolore eu fugiat nulla pariatur. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                velit esse cillum dolore eu fugiat nulla pariatur. 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
-                velit esse cillum dolore eu fugiat nulla pariatur. 
-                
-                
-                <script src="scrollbar.js"></script>                
-    </section> 
     
-    <section>
-    <a href="#">Play Game</a>
-    <a href="#">Leaderboard</a>
-    <script src="buttons.js"></script>
-    </section>
+        <h2 id ="heading" style= "font-family: 'Trebuchet MS'; color: blue;">Introduction</h2><br><br>
+        <p id="paraheading">Bloxorz is a puzzle game, very challenging. It is a great block awesome game that gets harder at each progressive level. You control a 6-sided two-story block through tiled floors. Flip the block over this way and over that way to get it to fall in the hole.
+           How to Play:
+           Control the block around the world, use the left, right, up and down arrow keys.</p><br><br><br><br>             
+        <script>
+        let progress = document.getElementById("progressbar");
+        let totalHeight =  document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function()
+        {
+            let progressHeight = (window.pageYOffset / totalHeight)*100;
+            progress.style.height = progressHeight + "%"
+        } 
+        </script>    
+        
+    <p>
+          <a id="a1" href="#">Play Game</a> &nbsp;
+    &nbsp;<a id="a2" href="#">Leaderboard</a>
+    
+    </p>
+    
     
         
 </body>

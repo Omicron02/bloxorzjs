@@ -4,20 +4,23 @@
     padding:0;
     font-family: consolas;
 }
-section
+
+#imagehead
 {
-    padding:50px;
-    background:#000000;
+    position: relative;
 }
-section h2
+
+#heading
 {
     font-size:2.5em;
     color:#ffffff;
+    position: relative;
 }
-section p
+#paraheading
 {
     font-size: 1.2em;
     color:#ffffff;
+    position: relative;
 }
 
 ::-webkit-scrollbar
@@ -31,7 +34,7 @@ section p
     right:0;
     width:10px;
     height: 100px;
-    background:rgba(255,255,255,0.05);
+    background:rgba(236, 8, 8, 0.05);
 }
 #progressbar
 {
@@ -83,9 +86,11 @@ body
     align-items:center;
     min-height: 100vh;
     flex-direction:column;
-    background:#000000 ;
+    /* background:#000000 ;*/
+    background-image: url("Images/new.jpg") ;
+    background-size: 100%;
 }
-a
+ #a1,#a2
 {
     position: relative;
     display: inline-block;
@@ -101,36 +106,11 @@ a
     background: linear-gradient(90deg, #0162c8,#55e7fc);
 
 }
-a:nth-child(2)
+#a2
 {
     background: linear-gradient(90deg,#755bea,#ff72c0)
 
 }
-span{
-    position: absolute;
-    background: #fff;
-    transform:translate(-50%,-50%);
-    pointer-events:none;
-    border-radius:50%;
-    animation:animate2 1s linear infinite;
-}
-@keyframes animate2
-{
-    0%
-    {
-        width:0px;
-        height:0ps;
-        opacity: 0.5;
-    }
-    100%
-    {
-        width:500px;
-        height:500px;
-        opacity: 0;
 
-    }
-    canvas {
-        width: 100%;
-        height: 100%;
-      }
-}
+
+
