@@ -12,7 +12,7 @@ section
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #4770e2;
+    background: #095a55;
 }
 section::before
 {
@@ -22,7 +22,7 @@ section::before
     left: 0;
     width: 50%;
     height: 100%;
-    background: #9308a0;
+    background: #fff38e;
 }
 .container 
 {
@@ -38,7 +38,7 @@ section::before
     top: 40px;
     width: 350px;
     height: calc(100% - 80px);
-    background: #1242c4;
+    background: #095a55;
     z-index: 1;
     padding: 40px;
     display: flex;
@@ -187,7 +187,7 @@ section::before
 {
     position: relative;
     cursor: pointer;
-    background: #1d0ee6;
+    background: #095a55;
     color: #fff;
     border: none;
     max-width: 150px;
@@ -195,7 +195,7 @@ section::before
 }
 .container .contactForm .formBox .inputBox input[type="submit"]:hover
 {
-    background: #b417e4;
+    background: #0d948b;
 }
 @media (max-width : 1200px)
 {
@@ -228,7 +228,7 @@ section::before
 {
     section
     {
-        background: #0b1fd3;
+        background: #fff38e;
     }
     section::before
     {

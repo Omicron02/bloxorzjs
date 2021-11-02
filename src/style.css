@@ -7,64 +7,20 @@
 
 #imagehead
 {
-    
     position: relative;
-    height: 40%;
 }
-.container
-{
-    width:100%;
-    height: 100vh;
-    padding-left: 8%;
-    padding-right: 8%;
-    box-sizing: border-box;
 
-}
-.navbar
-{
-    height: 12%;
-    display: flex;
-    align-items: center;
-}
-.logo
-{
-   width:50px;
-   cursor: pointer; 
-}
-.menu-icon
-{
-    width: 30px;
-    cursor: pointer;
-    margin-left:40px ;
-}
-nav{
-    flex:1;
-    text-align: right;
-}
-nav ul li
-{
-    list-style: none;
-    display: inline-block;
-    margin-left: 60px;
-}
-nav ul li .atag
-{
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 13px;
-}
 #heading
 {
     font-size:2.5em;
     color:#ffffff;
-    height: 30%;
-    align-content: flex-start;
+    position: relative;
 }
 #paraheading
 {
     font-size: 1.2em;
     color:#ffffff;
-    height: 30%;
+    position: relative;
 }
 
 ::-webkit-scrollbar
@@ -125,10 +81,10 @@ nav ul li .atag
 }
 body
 {
-    display: flex;
+    display:flex;
     justify-content:center;
     align-items:center;
-    
+    min-height: 100vh;
     flex-direction:column;
     /* background:#000000 ;*/
     background-image: url("Images/new.jpg") ;
@@ -153,11 +109,11 @@ a:nth-child(2)
 }
 a:nth-child(3)
 {
-    color:#FF10F0;
+    color:#ff00bf;
 }
 a:nth-child(4)
 {
-    color:  #1F51FF;
+    color:  #002cf1;
 }
 a:hover
 {
@@ -232,6 +188,9 @@ a:hover span:nth-child(4)
     transition: 1s;
     transition-delay:0.75s ;
 }
+
+
+
 a:nth-child(2):hover
 {
     color: #800808;
@@ -298,8 +257,8 @@ a:nth-child(2):hover span:nth-child(4)
 a:nth-child(3):hover
 {
     color: #991077;
-    background: #FF10F0;
-    box-shadow: 0 0 10px #FF10F0,0 0 40px #FF10F0, 0 0 80px #FF10F0;
+    background: #ff00bf;
+    box-shadow: 0 0 10px #ff00bf,0 0 40px #ff00bf, 0 0 80px #ff00bf;
 }
 a:nth-child(3) span:nth-child(1)
 {
@@ -307,7 +266,7 @@ a:nth-child(3) span:nth-child(1)
     left:-100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent , #FF10F0);
+    background: linear-gradient(90deg, transparent , #ff00bf);
 
 }
 
@@ -322,7 +281,7 @@ a:nth-child(3) span:nth-child(3)
     right:-100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent , #FF10F0);
+    background: linear-gradient(270deg, transparent , #ff00bf);
 
 }
 
@@ -338,7 +297,7 @@ a:nth-child(3) span:nth-child(2)
     right:0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent , #FF10F0);
+    background: linear-gradient(180deg, transparent , #ff00bf);
 
 }
 
@@ -354,7 +313,7 @@ a:nth-child(3) span:nth-child(4)
     left:0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent , #FF10F0);
+    background: linear-gradient(180deg, transparent , #ff00bf);
 }
 a:nth-child(3):hover span:nth-child(4)
 {
@@ -368,8 +327,8 @@ a:nth-child(3):hover span:nth-child(4)
 a:nth-child(4):hover
 {
     color:#0d4e83;
-    background: #1F51FF;
-    box-shadow: 0 0 10px #1F51FF,0 0 40px #1F51FF, 0 0 80px #1F51FF;
+    background: #002cf1;
+    box-shadow: 0 0 10px #002cf1,0 0 40px #002cf1, 0 0 80px #002cf1;
 }
 a:nth-child(4) span:nth-child(1)
 {
@@ -377,7 +336,7 @@ a:nth-child(4) span:nth-child(1)
     left:-100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent , #1F51FF);
+    background: linear-gradient(90deg, transparent , #002cf1);
 }
 a:nth-child(4):hover span:nth-child(1)
 {
@@ -390,7 +349,7 @@ a:nth-child(4) span:nth-child(3)
     right:-100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent , #1F51FF);
+    background: linear-gradient(270deg, transparent , #002cf1);
 }
 a:nth-child(4):hover span:nth-child(3)
 {
@@ -404,7 +363,7 @@ a:nth-child(4) span:nth-child(2)
     right:0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent , #1F51FF);
+    background: linear-gradient(180deg, transparent , #002cf1);
 }
 a:nth-child(4):hover span:nth-child(2)
 {
@@ -418,7 +377,7 @@ a:nth-child(4) span:nth-child(4)
     left:0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent , #1F51FF);
+    background: linear-gradient(180deg, transparent , #002cf1);
 }
 a:nth-child(4):hover span:nth-child(4)
 {

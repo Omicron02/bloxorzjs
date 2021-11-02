@@ -4,30 +4,32 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
         <title>Bloxorz</title>
         <link rel="stylesheet" href="style.css" type="text/css">
+        
         <script src="vanilla-tilt.js"></script>
     </head>
-    <img id="imagehead" src="Images/Bloxorz.gif" >
+  <body>
+    
+    <img id="imagehead" src="Images/Bloxorz.gif" data-tilt><br><br><br>
     <div id="progressbar"></div>
     <div id="scrollpath"></div>
-    <body>
-      <div class="container">
-      <div class="navbar">
-        <img src="Images/logo.png" class="logo">
-        <nav>
-          <ul>
-            <li><a class="atag" href="#">HOME</a></li>
-            <li><a class="atag" href="#">RULES</a></li>
-            <li><a class="atag" href="#">ABOUT</a></li>
-          </ul>
-        </nav>
-        <img src="Images/menu.png" class="menu-icon">
-      </div>
-    </div>
+    
         <h2 id ="heading" style= "font-family: 'Trebuchet MS'; color: blue;">Introduction</h2><br><br>
-        <p id="paraheading">Hello.</p><br><br><br><br>   </p>          
-        <p>
+        <p id="paraheading">Bloxorz is a puzzle game, very challenging. It is a great block awesome game that gets harder at each progressive level. You control a 6-sided two-story block through tiled floors. Flip the block over this way and over that way to get it to fall in the hole.
+           How to Play:
+           Control the block around the world, use the left, right, up and down arrow keys.</p><br><br><br><br>             
+        <script>
+        let progress = document.getElementById("progressbar");
+        let totalHeight =  document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function()
+        {
+            let progressHeight = (window.pageYOffset / totalHeight)*100;
+            progress.style.height = progressHeight + "%"
+        } 
+        </script>    
+      <p>
           <a href="#">
             <span></span>
             <span></span>
@@ -42,14 +44,14 @@
             <span></span>
             Leaderboard
           </a>
-          <a href="feedbackform.html">
+          <a href="#">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             Feedback
           </a>
-          <a href="card.html">
+          <a href="#">
             <span></span>
             <span></span>
             <span></span>
@@ -57,14 +59,8 @@
             Credits
           </a>
       </p>
-      <script>
-        let progress = document.getElementById("progressbar");
-        let totalHeight =  document.body.scrollHeight - window.innerHeight;
-        window.onscroll = function()
-        {
-            let progressHeight = (window.pageYOffset / totalHeight)*100;
-            progress.style.height = progressHeight + "%"
-        } 
-        </script> 
+    
+    
+        
 </body>
 </html>
