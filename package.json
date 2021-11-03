@@ -1,35 +1,24 @@
 {
   "name": "bloxorzjs",
-  "version": "1.0.0",
-  "description": "Create bloxorz on a website using js",
-  "main": "App.js",
-  
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Omicron02/BloxorzJS.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Omicron02/BloxorzJS/issues"
-  },
-  "homepage": "https://github.com/Omicron02/BloxorzJS#readme",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "mongoose": "^6.0.10",
-    "path": "^0.12.7",
-    "vanilla-tilt": "^1.7.2",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.12",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-parallax-tilt": "^1.5.74",
     "react-scripts": "4.0.3",
+    "react-vanilla-tilt": "^1.0.0",
+    "vanilla-tilt": "^1.7.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
