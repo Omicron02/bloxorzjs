@@ -110,7 +110,7 @@ body
     backdrop-filter:blur(10px);
     opacity: 0;
     transition: 0.5s;
-    animation: animatess 2s ease-in-out infinite;
+    animation: cardAnimate 1.5s ease-in-out infinite;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 .container .box:hover span::before
@@ -134,7 +134,7 @@ body
     backdrop-filter:blur(10px);
     opacity: 0;
     transition: 0.5s;
-    animation: animatess 2s ease-in-out infinite;
+    animation: cardAnimate 1.5s ease-in-out infinite;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     animation-delay: -1s;
 }
@@ -146,7 +146,7 @@ body
     height: 100px;
     opacity:1;
 }
-@keyframes animatess 
+@keyframes cardAnimate
 {
     0%, 100% 
     {

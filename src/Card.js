@@ -4,6 +4,7 @@ import Scroll from './scrollbar'
 
 function Card()
 {
+    document.body.style.cssText = "display:flex;justify-content:center;align-items:center;min-height:100vh;background : #1d061a;"
     const cardData =
     [
         { name: "Pranav K R", srn: "247", github: "ProBrother7" },
@@ -13,7 +14,6 @@ function Card()
 
     const cardMap = cardData.map(element => 
         <CardData key = {element.name} name = {element.name} srn = {element.srn} github = {element.github}/>)
-
     return( 
     <>
         <Scroll/>
@@ -41,4 +41,5 @@ function CardData(props)
     </Tilt>
     )
 }
+
 export default Card;
