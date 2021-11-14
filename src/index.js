@@ -4,10 +4,10 @@ import './index.css';
 import App from './App';
 import Card from './Card';
 import Firstpage from './Firstpage';
+import Signup from './signup/Signup';
 
 ReactDOM.render(
-  
-    <Firstpage/>,
+    <Signup/>,
     document.getElementById('root')
 );
 

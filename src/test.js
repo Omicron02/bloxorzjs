@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const leaderboardSchema = require("../models/leaderboardSchema")
+const leaderboardSchema = require("./models/leaderboardSchema")
 
 const dotenv = require("dotenv")
 dotenv.config()
