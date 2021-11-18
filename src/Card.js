@@ -1,10 +1,10 @@
-import styles from './card.module.css'
+import cardStyles from './card.module.css'
 import Tilt from 'react-parallax-tilt';
 import Scroll from './scrollbar'
 
 function Card()
 {
-    document.body.style.cssText = "display:flex;justify-content:center;align-items:center;min-height:100vh;background : #1d061a;"
+    document.body.style = "display:flex; justify-content:center; align-items:center; min-height:100vh; background : #1d061a; box-sizing: border-box;"
     const cardData =
     [
         { name: "Pranav K R", srn: "247", github: "ProBrother7" },
@@ -17,7 +17,7 @@ function Card()
     return( 
     <>
         <Scroll/>
-        <div className={styles.container}>
+        <div className={cardStyles.container}>
             {cardMap}
         </div>
     </>
@@ -27,9 +27,9 @@ function Card()
 function CardData(props)
 {
     return(
-    <Tilt className={styles.box} gyroscope={true} tiltReverse={true}>
+    <Tilt className={cardStyles.box} gyroscope={true} tiltReverse={true}>
         <span/>
-        <div className = {styles.content}>
+        <div className = {cardStyles.content}>
             <h2>{props.name}</h2>
             <p>
                 Name: {props.name}<br/>

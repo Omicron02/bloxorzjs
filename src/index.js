@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import Card from './Card';
-import Firstpage from './Firstpage';
-import Signup from './signup/Signup';
+// import Card from './Card';
+// import Firstpage from './Firstpage';
+// import Signup from './signup/Signup';
+import "./index.css"
 
 ReactDOM.render(
-    <Signup/>,
+    <App/>,
     document.getElementById('root')
 );
 

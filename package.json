@@ -16,6 +16,7 @@
     "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
     "react-vanilla-tilt": "^1.0.0",
+    "three": "^0.134.0",
     "vanilla-tilt": "^1.7.2",
     "web-vitals": "^1.1.2"
   },
@@ -42,5 +43,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "type": "module"
 }
