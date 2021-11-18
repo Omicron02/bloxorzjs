@@ -21,7 +21,10 @@
 
 .imagehead
 {
+    align-items: top;
     position: relative;
+    width : 50%;
+    height: 50%;
 }
 /* 
 .heading

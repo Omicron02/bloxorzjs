@@ -1,7 +1,7 @@
 import fpStyles from "./firstpage.module.css"
 import {Link} from "react-router-dom";
 // import Scroll from './scrollbar'
-import BloxorzImg from "./Images/Bloxorz.gif"
+import BloxorzImg from "./Images/bloxorz.png"
 
 function Firstpage()
 {
@@ -25,7 +25,7 @@ function Firstpage()
       <div className = {fpStyles.firstpage}>
         <div className = {fpStyles.components}>
           <img className={fpStyles.imagehead} src={BloxorzImg}/>
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br/><br/><br/><br/><br/><br/><br/><br/>
           <p>
             {buttonLinks}
           </p>
