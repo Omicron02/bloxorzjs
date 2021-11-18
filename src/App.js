@@ -2,15 +2,18 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Firstpage from "./Firstpage.js"
 import Card from "./Card.js"
+import Signup from "./signup/Signup.js"
 
 function App()
 {
   return (
     <Router>
       <Routes>
-        <Route path = "/" exact element = {<Firstpage/>}/>
+        <Route exact path = "/" element = {<Firstpage/>}/>
 
-        <Route path="/credits" element = {<Card/>}/>
+        <Route path = "/credits" element = {<Card/>}/>
+
+        <Route path = "/login" element = {<Signup/>}/>
       </Routes>
     </Router>
   )
