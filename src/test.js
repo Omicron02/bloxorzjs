@@ -1,21 +1,4 @@
-const mongoose = require("mongoose")
-const leaderboardSchema = require("./models/leaderboardSchema")
-
-const dotenv = require("dotenv")
-dotenv.config()
-
-mongoose.connect(process.env.SRV,
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }).then(() =>
-    {
-        console.log("Database connection successful!")
-    }).catch( e =>
-    {
-        console.log(e)
-    })
-
+import leaderboardSchema from "./models/leaderboardSchema"
 async function leaderboardCreate(name,password)
 {
     await leaderboardSchema.findOneAndUpdate
@@ -34,5 +17,6 @@ async function leaderboardUpdate(name,moves,index)
         {$set: {[`moves.${index}`]: moves}}
     )
 }
-//leaderboardCreate("Pranav","hye")
-//leaderboardUpdate("Rahul",35,5)
+export default leaderboardCreate 
+export default leaderboardUpdate
+
