@@ -35,14 +35,14 @@ function Signup(){
                     <img src={gp} alt = "gp"/>
                 </div>
                 <form id="login" className={login+" "+styles.inputgroup}>
-                    <input type="text" id="username" className={styles.inputfield} placeholder="User Id" required />
-                    <input type="text" id="password" className={styles.inputfield} placeholder="Enter Password" required />
+                    <input type="text" id="username" pattern="[a-zA-Z0-9_]{3,15}" title="Letters, numbers and '_' of length 3-15 characters" className={styles.inputfield} placeholder="User Id" required />
+                    <input type="text" id="password" pattern="[a-zA-Z0-9_]{3,15}" title="Letters, numbers and '_' of length 3-15 characters" className={styles.inputfield} placeholder="Enter Password" required />
                     <input type="checkbox" className={styles.checkbox} /><span className = {styles.span}>Remember Password</span>
                     <button type="submit" className={styles.submitbtn}>Login</button>
                 </form>
                 <form id="register" className={register+" "+styles.inputgroup}>
-                    <input type="text" id="reguser" className={styles.inputfield} placeholder="User Id" required />
-                    <input type="text" id="regpassword" className={styles.inputfield} placeholder="Enter Password" required />
+                    <input type="text" pattern="[a-zA-Z0-9_]{3,15}" title="Letters, numbers and '_' of length 3-15 characters" id="reguser" className={styles.inputfield} placeholder="User Id" required />
+                    <input type="text" id="regpassword" pattern="[a-zA-Z0-9_]{3,15}" title="Letters, numbers and '_' of length 3-15 characters" className={styles.inputfield} placeholder="Enter Password" required />
                     <input type="checkbox" className={styles.checkbox} /><span className = {styles.span}>I agree to the terms and conditions</span>
                     <button type="submit" className={styles.submitbtn}>Register</button>
                 </form>

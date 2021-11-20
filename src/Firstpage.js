@@ -24,7 +24,7 @@ function Firstpage()
     return(
       <div className = {fpStyles.firstpage}>
         <div className = {fpStyles.components}>
-          <img className={fpStyles.imagehead} src={BloxorzImg}/>
+          <img className={fpStyles.imagehead} src={BloxorzImg} alt="background"/>
           <br/><br/><br/><br/><br/><br/><br/><br/>
           <p>
             {buttonLinks}
