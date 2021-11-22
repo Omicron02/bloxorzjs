@@ -4,7 +4,6 @@ import Tilt from 'react-parallax-tilt';
 
 function Card()
 {
-    document.body.style = ""
     const cardData =
     [
         { name: "Pranav K R", srn: "247", github: "ProBrother7" },
