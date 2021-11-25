@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Introduction
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### This repo is for the 3rd semester Web Tech project.
 
-## Available Scripts
+It is a website that allows you to play a game called Bloxorz. Bloxorz is a game where you manipulate a cuboidal block (1x2x1 dimensions) through a set of platforms and navigate to the exit without falling off the edge. It has [pending] challenging levels to play through with a leaderboard to keep track of the scores of every user.
 
-In the project directory, you can run:
+# Website Components
 
-### `npm start`
+* **Homepage**: The main page containing buttons leading to other pages. 
+* **Login**: The page containing the user login/register section.
+* **Game**: The actual bloxorz game.
+* **Leaderboard**: The leaderboard containing the moves of every user for every level.
+* **Feedback** [deprecated???]: The page containing the feedback component.
+* **Credits**: The page containing the information of the project contributors.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Primary modules: 
+* [**Node.js**](https://nodejs.org/en/) (v16.x.x or higher)
+* [**MongoDB**](https://www.mongodb.com) (mongoose v6.x.x or higher)
+* [**React**](https://reactjs.org) (v17.x.x or higher)
+* [**Express**](https://expressjs.com) (v4.x.x or higher)
 
-### `npm test`
+Other modules include [three.js](https://threejs.org), [react-three-fiber](https://github.com/pmndrs/react-three-fiber), [react-spring](https://react-spring.io), [react-parallax-tilt](https://github.com/mkosir/react-parallax-tilt)
+The remaining modules used can be checked in [package.json](package.json).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Instructions
 
-### `npm run build`
+Clone the repository.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Run the following commands in the terminal:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`cd bloxorzjs`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm i`
 
-### `npm run eject`
+To run the application, type: `npm start` in the terminal.
+The application will we visible in [http://localhost:3000](http://localhost:3000) on your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Contributors
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* ### [Prajay V K](https://github.com/PrajayVK)
+* ### [Pranav K R](https://github.com/ProBrother7)
+* ### [Rahul Samal](https://github.com/Omicron02)
