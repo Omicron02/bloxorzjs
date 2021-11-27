@@ -21,7 +21,8 @@ It is a website that allows you to play a game called Bloxorz. Bloxorz is a game
 * [**React**](https://reactjs.org) (v17.x.x or higher)
 * [**Express**](https://expressjs.com) (v4.x.x or higher)
 
-Other modules include [three.js](https://threejs.org), [react-three-fiber](https://github.com/pmndrs/react-three-fiber), [react-spring](https://react-spring.io), [react-parallax-tilt](https://github.com/mkosir/react-parallax-tilt)
+Other modules include [three.js](https://threejs.org), [react-three-fiber](https://github.com/pmndrs/react-three-fiber), [react-spring](https://react-spring.io), [react-parallax-tilt](https://github.com/mkosir/react-parallax-tilt).
+
 The remaining modules used can be checked in [package.json](package.json).
 
 # Instructions
