@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-let leaderboardSchema = new mongoose.Schema
+let infoSchema = new mongoose.Schema
 ({
     name: {type: String, unique: true},
     password: {type: String},
@@ -8,4 +8,4 @@ let leaderboardSchema = new mongoose.Schema
     moves: {type: Array, default: Array(10).fill(0)}
 })
 
-export default mongoose.model("leaderboards", leaderboardSchema)
+export default mongoose.model("details", infoSchema)
