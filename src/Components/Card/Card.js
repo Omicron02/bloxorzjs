@@ -1,6 +1,5 @@
-import cardStyles from './card.module.css'
+import cardStyles from './Card.module.css'
 import Tilt from 'react-parallax-tilt';
-// import Scroll from './scrollbar'
 
 function Card()
 {
@@ -14,12 +13,9 @@ function Card()
     const cardMap = cardData.map(element => 
         <CardData key = {element.name} name = {element.name} srn = {element.srn} github = {element.github}/>)
     return( 
-    <>
-        
         <div className={cardStyles.container}>
             {cardMap}
         </div>
-    </>
     )
 }
 

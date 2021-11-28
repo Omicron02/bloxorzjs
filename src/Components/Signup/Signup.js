@@ -1,15 +1,15 @@
-import styles from './signup.module.css'
-import fb from './fb.png'
-import tw from './tw.png'
-import gp from './gp.png'
+import signStyles from './Signup.module.css'
+import fb from '../../Images/Signup/fb.png'
+import tw from '../../Images/Signup/tw.png'
+import gp from '../../Images/Signup/gp.png'
 import {useState} from "react"
 import axios from "axios"
 
 function Signup(){
 
-    const [btnpos, btnposStyle] = useState(styles.btnpos1)
-    const [login, loginStyle] = useState(styles.login1)
-    const [register, registerStyle] = useState(styles.register1)
+    const [btnpos, btnposStyle] = useState(signStyles.btnpos1)
+    const [login, loginStyle] = useState(signStyles.login1)
+    const [register, registerStyle] = useState(signStyles.register1)
 
     const [title, setTitle] = useState("Letters, numbers and '_' of length 3-15 characters")
 
@@ -37,36 +37,36 @@ function Signup(){
         event.preventDefault()
     }
     const loginSection = ()=>{
-        btnposStyle(styles.btnpos1)
-        loginStyle(styles.login1)
-        registerStyle(styles.register1)
+        btnposStyle(signStyles.btnpos1)
+        loginStyle(signStyles.login1)
+        registerStyle(signStyles.register1)
     }
     const registerSection =()=>{
-        btnposStyle(styles.btnpos2)
-        loginStyle(styles.login2)
-        registerStyle(styles.register2)
+        btnposStyle(signStyles.btnpos2)
+        loginStyle(signStyles.login2)
+        registerStyle(signStyles.register2)
     }
     return(
     <>
-        <div className={styles.hero}>
-            <div className={styles.formbox}>
-                <div className={styles.buttonbox}>
-                    <div className={styles.btn+" "+btnpos}></div>
-                    <button type="button" className={styles.togglebtn+" "+styles.togglebtnbg} onClick={loginSection}>Login</button>
-                    <button type="button" className={styles.togglebtn+" "+styles.togglebtnbg} onClick={registerSection}>Register</button>
+        <div className={signStyles.hero}>
+            <div className={signStyles.formbox}>
+                <div className={signStyles.buttonbox}>
+                    <div className={signStyles.btn+" "+btnpos}></div>
+                    <button type="button" className={signStyles.togglebtn+" "+signStyles.togglebtnbg} onClick={loginSection}>Login</button>
+                    <button type="button" className={signStyles.togglebtn+" "+signStyles.togglebtnbg} onClick={registerSection}>Register</button>
                 </div>
-                <div className={styles.socialicons}>
+                <div className={signStyles.socialicons}>
                     <img src={fb} alt = "fb"/>
                     <img src={tw} alt = "tw"/>
                     <img src={gp} alt = "gp"/>
                 </div> 
-                <form id="login" className={login+" "+styles.inputgroup} onSubmit = {loginSubmit}>
+                <form id="login" className={login+" "+signStyles.inputgroup} onSubmit = {loginSubmit}>
                     <input type="text" 
                         id="username" 
                         onChange = {event => setUsername(event.target.value)}
                         pattern="[a-zA-Z0-9_]{3,15}" 
                         title="Letters, numbers and '_' of length 3-15 characters" 
-                        className={styles.inputfield} 
+                        className={signStyles.inputfield} 
                         placeholder="User Id" 
                         required 
                     />
@@ -75,23 +75,23 @@ function Signup(){
                         onChange = {event => setPassword(event.target.value)} 
                         pattern="[a-zA-Z0-9_]{3,15}" 
                         title="Letters, numbers and '_' of length 3-15 characters" 
-                        className={styles.inputfield} 
+                        className={signStyles.inputfield} 
                         placeholder="Enter Password" 
                         required 
                     />
 
-                    <input type="checkbox" className={styles.checkbox} /><span className = {styles.span}>Remember Password</span>
-                    <button type="submit" className={styles.submitbtn}>Login</button>
+                    <input type="checkbox" className={signStyles.checkbox} /><span className = {signStyles.span}>Remember Password</span>
+                    <button type="submit" className={signStyles.submitbtn}>Login</button>
                 </form>
 
-                <form id="register" className={register+" "+styles.inputgroup} onSubmit = {registerSubmit}>
+                <form id="register" className={register+" "+signStyles.inputgroup} onSubmit = {registerSubmit}>
                     <input type="text" 
                         id="regusername" 
                         onChange = {event => {setUsername(event.target.value)
                                               setUsernameTaken("")}}
                         pattern="[a-zA-Z0-9_]{3,15}" 
                         title={title} 
-                        className={styles.inputfield} 
+                        className={signStyles.inputfield} 
                         placeholder="User Id" 
                         required
                     />
@@ -99,16 +99,16 @@ function Signup(){
                         id="regpassword" 
                         onChange = {event => setPassword(event.target.value)} 
                         pattern="[a-zA-Z0-9_]{3,15}" title="Letters, numbers and '_' of length 3-15 characters" 
-                        className={styles.inputfield} 
+                        className={signStyles.inputfield} 
                         placeholder="Enter Password" 
                         required 
                     />
-                    <input type="checkbox" className={styles.checkbox} /><span className = {styles.span}>Remember Password</span>
-                    <button type="submit" className={styles.submitbtn}>Register</button>
+                    <input type="checkbox" className={signStyles.checkbox} /><span className = {signStyles.span}>Remember Password</span>
+                    <button type="submit" className={signStyles.submitbtn}>Register</button>
                     <br/><br/>
-                    <p className = {styles.regError}>{usernameTaken}</p>
+                    <p className = {signStyles.regError}>{usernameTaken}</p>
                 </form>
-            {/* <p className = {styles.inputgroup}>hello world</p> */}
+            {/* <p className = {signStyles.inputgroup}>hello world</p> */}
             </div>
            
         </div>
