@@ -17,6 +17,6 @@ mongoose.connect(process.env.SRV,
 
 app.use(express.json())
 app.use(cors())
-app.use("/app", routes)
+app.use("/api", routes)
 
 app.listen(4000, () => console.log("Server run successful!"))
