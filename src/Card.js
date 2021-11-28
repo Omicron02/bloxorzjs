@@ -7,7 +7,7 @@ function Card()
     const cardData =
     [
         { name: "Pranav K R", srn: "247", github: "ProBrother7" },
-        { name: "Prajay VK", srn: "245", github: "PrajayVK" },
+        { name: "Prajay V K", srn: "245", github: "PrajayVK" },
         { name: "Rahul Samal", srn: "262", github: "Omicron02" }
     ]
 

@@ -12,7 +12,7 @@ dotenv.config()
 
 
 ReactDOM.render(
-    <Game/>,
+    <App/>,
     document.getElementById('root')
 );
 
