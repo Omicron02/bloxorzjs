@@ -1,0 +1,46 @@
+.page
+{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg ,#4dff03,#00d0ff );
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.leaderboard
+{
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px;
+}
+.tableHeader
+{
+    font-size: 30px;
+}
+.tableRow
+{
+    font-size: 20px;
+}
+.tableRow:nth-child(even)
+{
+    background: linear-gradient(90deg, #4dff03, #00d0ff);
+}
+.tableRow:nth-child(odd)
+{
+     background: linear-gradient(270deg, #4dff03, #00d0ff);
+}
+
+.rankData
+{
+    padding: 5px 100px;
+}
+.nameData
+{
+    padding: 5px 200px;
+}
+.moveData
+{
+    padding: 5px 100px;
+}
+

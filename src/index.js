@@ -5,7 +5,7 @@ import Game from "./Components/Game/Game.js"
 // import Card from './Card';
 // import Firstpage from './Firstpage';
 // import Signup from './signup/Signup';
-import mongoose from 'mongoose'
+import Leaderboard from './Components/Leaderboard/Leaderboard.js'
 import "./index.css"
 import dotenv from "dotenv"
 dotenv.config()
