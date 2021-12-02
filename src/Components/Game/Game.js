@@ -1,12 +1,14 @@
 import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
+import {useSpringRef} from "@react-spring/web"
 import React, {useState, useEffect, useRef} from 'react'
 import {Canvas, useFrame, useThree, extend} from "@react-three/fiber"
 import gameStyles from "./Game.module.css"
-import {a, useSpring} from "@react-spring/three"
+import {animated, useSpring} from "@react-spring/three"
+import {Physics, useBox} from "@react-three/cannon"
+// import {Skybox2, Skybox3} from "./imageLoader.js"
 
-import {Skybox2, Skybox3} from "./imageLoader.js"
-
+import BlockMovement from "./Movement.js"
 import Levels from "./levels.js"
 
 extend({OrbitControls})
@@ -34,83 +36,74 @@ function Controls(props)
     )
 }
 
-function SkyBox()
-{
-    const {scene} = useThree();
-    const loader = new THREE.CubeTextureLoader();
-    const texture = loader.load(Skybox2);
-    scene.background = texture;
-    return null
-}
+// function SkyBox()
+// {
+//     const {scene} = useThree();
+//     const loader = new THREE.CubeTextureLoader();
+//     const texture = loader.load(Skybox2);
+//     scene.background = texture;
+//     return null
+// }
 
 function Tile(props)
 {
-    const tile = useRef()
-
+    const tileRef = useRef()
     return(
-        <a.mesh ref = {tile} 
-            visible position={props.position} 
-            rotation={[0, 0, 0]} 
+        <animated.mesh ref = {tileRef} 
+            visible 
+            position = {props.position}
+            rotation = {[0, 0, 0]}
             castShadow 
             receiveShadow 
             penumbra = {1}
         >
-            <boxBufferGeometry attach="geometry" args = {[10,1,10]}/>
-            <a.meshStandardMaterial
+            <boxBufferGeometry attach="geometry" args = {[10, 1, 10]}/>
+            <animated.meshStandardMaterial
                 attach="material"
                 color="grey"
                 roughness={0.1}
                 metalness={0.1}
             />
-        </a.mesh>
+        </animated.mesh>
     )
 }
 
 function Block(props)
 {
-    const block = useRef()
-    // const [hovered, setHovered] = useState(false)
-    // const [active, setActive] = useState(false)
+    const blockRef = useRef()
+    var [blockProps, blockPosApi] = useSpring(() => 
+    ({
+        pos: [props.position[1]*10, 10, props.position[0]*10],
+        rotate: [0, 0, 0],
+        orient: "|"
+    }))
+    BlockMovement(blockRef, blockPosApi)
 
-    // const props = useSpring({
-    //   scale: active ? [2, 2, 2] : [1, 1, 1],
-    //   color: hovered ? "blue" : "red"
-    // })
-    useFrame(() => {
-        block.current.rotation.x += 0.00
-        block.current.position.x += 0.1
-        block.current.rotation.y += 0.01
-        block.current.rotation.z += 0.00
-    })
-
-    return(
-        <a.mesh 
-            ref = {block} 
-            visible 
-            position={[props.position[1]*10, 10, props.position[0]*10]} 
-            rotation={[0, 0, 0]} 
-            castShadow 
-            receiveShadow 
-            penumbra = {1} 
-        >
-            <boxBufferGeometry attach="geometry" args = {[10,20,10]}/>
-            <a.meshStandardMaterial
-                attach="material"
-                color="red"
-                roughness={0.1}
-                metalness={0.5}
-            />
-        </a.mesh>
-    )
+    return(<animated.mesh 
+        ref = {blockRef} 
+        visible 
+        position = {blockProps.pos}
+        rotation = {blockProps.rotate}
+        orient = {blockProps.orient}
+        castShadow 
+        receiveShadow 
+        penumbra = {1} 
+    >
+        <boxBufferGeometry attach="geometry" args = {[10, 20, 10]}/>
+        <meshStandardMaterial
+            attach = "material"
+            color = "red"
+            roughness = {0.1}
+            metalness = {0.5}
+        />
+    </animated.mesh>)
 }
   
 function Game() 
 { 
 
     const [grid, P] = Levels(1)
-    // console.log(grid[0])
     const cameraCentre = new THREE.Vector3(grid[0].length*5, 0, grid.length*5)
-    // const cameraCentre = new THREE.Vector3(0,0,0)
 
     const TileGrid = () => grid.map((row, i) =>
     {
@@ -137,10 +130,10 @@ function Game()
 
                 <Controls target = {cameraCentre}/>
 
-                <SkyBox/>
+                {/* <SkyBox/> */}
 
                 {/* <fog attach="fog"/> */}
-                <ambientLight intensity = {0.1}/>
+                <ambientLight intensity = {0.2}/>
                 {/* <spotLight penumbra = {1}/> */}
                 <spotLight 
                     position = {[100, 100, 100]} 
@@ -151,9 +144,11 @@ function Game()
                     shadow-mapSize-height={2048}
                     shadow-mapSize-width={2048}
                 />
-
+                <Physics gravity = {[0,-100,0]} size = {100} friction = {100}>
                 <TileGrid/>
+                
                 <Block position = {P}/>
+                </Physics>
             </Canvas>
         </div>
     )
