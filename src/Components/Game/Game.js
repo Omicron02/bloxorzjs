@@ -75,7 +75,7 @@ function Block(props)
     ({
         pos: [props.position[1]*10, 10, props.position[0]*10],
         rotate: [0, 0, 0],
-        orient: "|"
+        orient: "."
     }))
     BlockMovement(blockRef, blockPosApi)
 
