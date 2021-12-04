@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Firstpage from "./Components/Firstpage/Firstpage.js"
 import Card from "./Components/Card/Card.js"
 import Signup from "./Components/Signup/Signup.js"
-import Leaderboard from "./Components/Leaderboard/Leaderboard.js"
+import Leaderboard from "./Components/Leaderboard/leaderboard.js"
 
 function App()
 {

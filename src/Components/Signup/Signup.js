@@ -29,12 +29,14 @@ function Signup(){
             else
             setUsernameTaken("Username has been taken!")
         })
+        registerClick()
         
     }
 
     const loginSubmit = (event) =>
     {
         event.preventDefault()
+        loginClick()
     }
     const loginSection = ()=>{
         btnposStyle(signStyles.btnpos1)
@@ -45,6 +47,14 @@ function Signup(){
         btnposStyle(signStyles.btnpos2)
         loginStyle(signStyles.login2)
         registerStyle(signStyles.register2)
+    }
+    function registerClick(){
+        
+        alert('User Registered Successfully')
+    }
+    function loginClick(){
+        
+        alert('User login successful')
     }
     return(
     <>
@@ -70,7 +80,7 @@ function Signup(){
                         placeholder="User Id" 
                         required 
                     />
-                    <input type="text" 
+                    <input type="password" 
                         id="password" 
                         onChange = {event => setPassword(event.target.value)} 
                         pattern="[a-zA-Z0-9_]{3,15}" 
@@ -84,7 +94,7 @@ function Signup(){
                     <button type="submit" className={signStyles.submitbtn}>Login</button>
                 </form>
 
-                <form id="register" className={register+" "+signStyles.inputgroup} onSubmit = {registerSubmit}>
+                <form id="register" className={register+" "+signStyles.inputgroup} onSubmit ={registerSubmit}>
                     <input type="text" 
                         id="regusername" 
                         onChange = {event => {setUsername(event.target.value)
@@ -95,7 +105,7 @@ function Signup(){
                         placeholder="User Id" 
                         required
                     />
-                    <input type="text" 
+                    <input type="password" 
                         id="regpassword" 
                         onChange = {event => setPassword(event.target.value)} 
                         pattern="[a-zA-Z0-9_]{3,15}" title="Letters, numbers and '_' of length 3-15 characters" 
