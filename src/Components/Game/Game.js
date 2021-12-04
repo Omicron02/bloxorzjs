@@ -71,13 +71,15 @@ function Tile(props)
 function Block(props)
 {
     const blockRef = useRef()
+    const [blockDimensions, setBlockDimensions] = useState([10, 20, 10])
     var [blockProps, blockPosApi] = useSpring(() => 
     ({
         pos: [props.position[1]*10, 10, props.position[0]*10],
         rotate: [0, 0, 0],
-        orient: "."
+        orient: ".",
     }))
-    BlockMovement(blockRef, blockPosApi)
+
+    BlockMovement(blockRef, blockPosApi, setBlockDimensions)
 
     return(<animated.mesh 
         ref = {blockRef} 
@@ -89,7 +91,7 @@ function Block(props)
         receiveShadow 
         penumbra = {1} 
     >
-        <boxBufferGeometry attach="geometry" args = {[10, 20, 10]}/>
+        <animated.boxBufferGeometry attach="geometry" args = {blockDimensions}/>
         <meshStandardMaterial
             attach = "material"
             color = "red"
@@ -101,19 +103,21 @@ function Block(props)
   
 function Game() 
 { 
-
-    const [grid, P] = Levels(1)
+    const [level, setLevel] = useState(1)
+    const [[grid, setGrid], P, [buttons, setButtons] ] = [useState(Levels(level)[0]), Levels(level)[1], useState([])]
     const cameraCentre = new THREE.Vector3(grid[0].length*5, 0, grid.length*5)
 
-    const TileGrid = () => grid.map((row, i) =>
-    {
-        const Row = () => row.map((col, j) =>
+    var TileGrid = () => grid.map((row, i) =>
         {
-            if (col.slice(-1) === "1") return <Tile key = {(i, j)} position = {[10*j, 0, 10*i]}/>
-            else return null
+            var Row = () => row.map((col, j) =>
+            {
+                if (col.slice(-1) === "1") return <Tile key = {(i, j)} position = {[10*j, 0, 10*i]}/>
+                else return null
+            })
+            return <Row key = {i}/>
         })
-        return <Row key = {i}/>
-    })
+
+    
 
     return(
         <div className = {gameStyles.gameScreen}>
@@ -147,7 +151,7 @@ function Game()
                 <Physics gravity = {[0,-100,0]} size = {100} friction = {100}>
                 <TileGrid/>
                 
-                <Block position = {P}/>
+                <Block position = {P} grid = {grid} setGrid = {setGrid} lvl = {level} setLvl = {setLevel}/>
                 </Physics>
             </Canvas>
         </div>
