@@ -2,7 +2,7 @@
 {
     height: 100%;
     width: 100%;
-    background: linear-gradient(180deg ,#4dff03,#00d0ff );
+    background-image: url("../../Images/leaderboardbg.png");;
     background-position: center;
     background-size: cover;
     position: absolute;

@@ -17,7 +17,7 @@ function Signup(){
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-
+    const [invalidCred , setInvalidCred] = useState("")
     const registerSubmit = (event) =>
     {
         event.preventDefault()
@@ -36,7 +36,19 @@ function Signup(){
     const loginSubmit = (event) =>
     {
         event.preventDefault()
-        loginClick()
+        const loginData = {username: username, password: password}
+        axios.post("http://localhost:4000/api/readDB", loginData).then(res =>
+        {
+            if(!res.data)
+            setInvalidCred("User doesn't exist")
+            else if(!(loginData.username===res.data.name && loginData.password===res.data.password))
+            {
+                setInvalidCred("Invalid password")
+            }
+            else
+            loginClick()
+        })
+        
     }
     const loginSection = ()=>{
         btnposStyle(signStyles.btnpos1)
@@ -73,7 +85,7 @@ function Signup(){
                 <form id="login" className={login+" "+signStyles.inputgroup} onSubmit = {loginSubmit}>
                     <input type="text" 
                         id="username" 
-                        onChange = {event => setUsername(event.target.value)}
+                        onChange = {event => {setUsername(event.target.value);setInvalidCred("")}}
                         pattern="[a-zA-Z0-9_]{3,15}" 
                         title="Letters, numbers and '_' of length 3-15 characters" 
                         className={signStyles.inputfield} 
@@ -82,7 +94,7 @@ function Signup(){
                     />
                     <input type="password" 
                         id="password" 
-                        onChange = {event => setPassword(event.target.value)} 
+                        onChange = {event => {setPassword(event.target.value); setInvalidCred("")}} 
                         pattern="[a-zA-Z0-9_]{3,15}" 
                         title="Letters, numbers and '_' of length 3-15 characters" 
                         className={signStyles.inputfield} 
@@ -92,6 +104,8 @@ function Signup(){
 
                     <input type="checkbox" className={signStyles.checkbox} /><span className = {signStyles.span}>Remember Password</span>
                     <button type="submit" className={signStyles.submitbtn}>Login</button>
+                    <br/><br/>
+                    <p className = {signStyles.regError}>{invalidCred}</p>
                 </form>
 
                 <form id="register" className={register+" "+signStyles.inputgroup} onSubmit ={registerSubmit}>
