@@ -6,7 +6,7 @@ import {Canvas, useFrame, useThree, extend} from "@react-three/fiber"
 import gameStyles from "./Game.module.css"
 import {animated, useSpring} from "@react-spring/three"
 import {Physics, useBox} from "@react-three/cannon"
-// import {Skybox2, Skybox3} from "./imageLoader.js"
+import {Skybox2, Skybox3} from "./imageLoader.js"
 
 import BlockMovement from "./Movement.js"
 import Levels from "./levels.js"
@@ -36,14 +36,14 @@ function Controls(props)
     )
 }
 
-// function SkyBox()
-// {
-//     const {scene} = useThree();
-//     const loader = new THREE.CubeTextureLoader();
-//     const texture = loader.load(Skybox2);
-//     scene.background = texture;
-//     return null
-// }
+function SkyBox()
+{
+    const {scene} = useThree();
+    const loader = new THREE.CubeTextureLoader();
+    const texture = loader.load(Skybox3);
+    scene.background = texture;
+    return null
+}
 
 function Tile(props)
 {
@@ -134,7 +134,7 @@ function Game()
 
                 <Controls target = {cameraCentre}/>
 
-                {/* <SkyBox/> */}
+                <SkyBox/>
 
                 {/* <fog attach="fog"/> */}
                 <ambientLight intensity = {0.2}/>
