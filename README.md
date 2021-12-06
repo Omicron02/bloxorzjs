@@ -5,7 +5,7 @@
 It is a website that allows you to play a game called Bloxorz. Bloxorz is a game where you manipulate a cuboidal block (1x2x1 dimensions) through a set of platforms and navigate to the exit without falling off the edge. It has a leaderboard to keep track of the scores of every user.
 ## Gameplay
 
-<img src = "./public/bloxgif.gif" alt = "Gameplay GIF" title = "Bloxorz" width = "450"></br>
+<img src = "./public/bloxgif.gif" alt = "Gameplay GIF" title = "Bloxorz"></br>
 
 # Website Components
 
