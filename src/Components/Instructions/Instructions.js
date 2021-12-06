@@ -11,17 +11,14 @@ function Instruction(){
                     <div className={instyle.card}>
                         <div className={instyle.content}>
                             <h2>INFO</h2>
-                            <br/><br/><br/>
+                            <br/><br/><br/><br/><br/>
                             <h3>Instructions</h3>
                             <br/>
-                            <p>Lorem ipsum dolor sit amet, an 
-                                his etiam torquatos. Tollit soleat 
-                                phaedrum te duo, eum cu recteque 
-                                expetendis neglegentur. Cu mentitum 
-                                maiestatis persequeris pro, pri 
-                                ponderum tractatos ei. Id 
-                                qui nemore latine molestiae, 
-                                ad mutat oblique delicatissimi pro. </p>
+                            <p>Use the W, A, S, D keys to move the block accordingly.
+                               The aim of the game is to make the block pass through the gap on the floor
+                               Score is calculated based on the number of moves you take to finish the level.
+                               Going outside the boundaries will result in an instant loss.
+                            </p>
                             <a href="#">Play Game</a>
                         </div>
                     </div>
