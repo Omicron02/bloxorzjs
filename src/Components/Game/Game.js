@@ -6,7 +6,7 @@ import {Canvas, useFrame, useThree, extend} from "@react-three/fiber"
 import gameStyles from "./Game.module.css"
 import {animated, useSpring} from "@react-spring/three"
 import {Physics, useBox} from "@react-three/cannon"
-// import {Skybox2, Skybox3} from "./imageLoader.js"
+import {Skybox2, Skybox3} from "./imageLoader.js"
 
 import BlockMovement from "./Movement.js"
 import Levels from "./levels.js"
@@ -36,14 +36,14 @@ function Controls(props)
     )
 }
 
-// function SkyBox()
-// {
-//     const {scene} = useThree();
-//     const loader = new THREE.CubeTextureLoader();
-//     const texture = loader.load(Skybox2);
-//     scene.background = texture;
-//     return null
-// }
+function SkyBox()
+{
+    const {scene} = useThree();
+    const loader = new THREE.CubeTextureLoader();
+    const texture = loader.load(Skybox2);
+    scene.background = texture;
+    return null
+}
 
 function Tile(props)
 {
@@ -103,8 +103,7 @@ function Block(props)
   
 function Game() 
 { 
-    const [level, setLevel] = useState(1)
-    const [[grid, setGrid], P, [buttons, setButtons] ] = [useState(Levels(level)[0]), Levels(level)[1], useState([])]
+    const [grid, P] = Levels(1)
     const cameraCentre = new THREE.Vector3(grid[0].length*5, 0, grid.length*5)
 
     var TileGrid = () => grid.map((row, i) =>
@@ -134,7 +133,7 @@ function Game()
 
                 <Controls target = {cameraCentre}/>
 
-                {/* <SkyBox/> */}
+                <SkyBox/>
 
                 {/* <fog attach="fog"/> */}
                 <ambientLight intensity = {0.2}/>
@@ -151,7 +150,7 @@ function Game()
                 <Physics gravity = {[0,-100,0]} size = {100} friction = {100}>
                 <TileGrid/>
                 
-                <Block position = {P} grid = {grid} setGrid = {setGrid} lvl = {level} setLvl = {setLevel}/>
+                <Block position = {P} grid = {grid}/>
                 </Physics>
             </Canvas>
         </div>
