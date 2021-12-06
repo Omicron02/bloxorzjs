@@ -4,8 +4,8 @@ import tw from '../../Images/Signup/tw.png'
 import gp from '../../Images/Signup/gp.png'
 import {useState} from "react"
 import axios from "axios"
-
-function Signup(){
+import {Routes, Navigate} from "react-router-dom"
+function Signup({setUser}){
 
     const [btnpos, btnposStyle] = useState(signStyles.btnpos1)
     const [login, loginStyle] = useState(signStyles.login1)
@@ -46,7 +46,13 @@ function Signup(){
                 setInvalidCred("Invalid password")
             }
             else
-            loginClick()
+            {
+                setUser(loginData.username)
+                loginClick()
+                return <Navigate to = "/game"/>
+                
+            }
+            
         })
         
     }

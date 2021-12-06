@@ -5,7 +5,7 @@ import BloxorzImg from "../../Images/bloxorz.png"
 function Firstpage()
 {
 	const buttonContent = [
-        { text: "Play Game", link: "login" },
+        { text: "Play Game", link: "game" },
         { text: "Instructions", link: "instruction" },
         { text: "Leaderboard", link: "leaderboard" },
         { text: "Credits", link: "credits" }

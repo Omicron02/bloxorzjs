@@ -89,7 +89,7 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: 1.5px;
 }
-.container .card .content a
+.container .card .content .gameLink
 {
     position: relative;
     display: inline-block;

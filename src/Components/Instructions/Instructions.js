@@ -1,6 +1,7 @@
 import instyle from './instructions.module.css'
 import instructionbg from './instructionbg.mp4'
 import Tilt from 'react-parallax-tilt'
+import {Link} from "react-router-dom"
 function Instruction(){
     return(
             <div className={instyle.body}>
@@ -19,7 +20,7 @@ function Instruction(){
                                Score is calculated based on the number of moves you take to finish the level.
                                Going outside the boundaries will result in an instant loss.
                             </p>
-                            <a href="#">Play Game</a>
+                            <Link to = "/game" className = {instyle.gameLink}>Play Game</Link>
                         </div>
                     </div>
                 </Tilt>
