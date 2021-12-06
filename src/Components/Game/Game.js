@@ -1,11 +1,10 @@
 import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
-import {useSpringRef} from "@react-spring/web"
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useRef, Suspense} from 'react'
 import {Canvas, useFrame, useThree, extend , useLoader} from "@react-three/fiber"
 import gameStyles from "./Game.module.css"
 import {animated, useSpring} from "@react-spring/three"
-import {Physics, useBox} from "@react-three/cannon"
+import {Physics} from "@react-three/cannon"
 import {Skybox2, Skybox3, Skybox4} from "./imageLoader.js"
 import blocktexture from "../../Images/blocktexture.png"
 import BlockMovement from "./Movement.js"
@@ -40,7 +39,7 @@ function SkyBox()
 {
     const {scene} = useThree();
     const loader = new THREE.CubeTextureLoader();
-    const texture = loader.load(Skybox4);
+    const texture = loader.load(Skybox2);
     scene.background = texture;
     return null
 }
@@ -60,9 +59,9 @@ function Tile(props)
             <boxBufferGeometry attach="geometry" args = {[10, 1, 10]}/>
             <animated.meshStandardMaterial
                 attach="material"
-                color="grey"
+                color={props.color}
                 roughness={0.1}
-                metalness={0.1}
+                metalness={0.3}
             />
         </animated.mesh>
     )
@@ -111,13 +110,12 @@ function Game()
         {
             var Row = () => row.map((col, j) =>
             {
-                if (col.slice(-1) === "1") return <Tile key = {(i, j)} position = {[10*j, 0, 10*i]}/>
+                if (col.slice(-1) === "1") return <Tile key = {(i, j)} position = {[10*j, 0, 10*i]} color = "grey"/>
+                else if (col.slice(-1) === "9") return <Tile key = {(i, j)} position = {[10*j, 0, 10*i]} color = "green"/>
                 else return null
             })
             return <Row key = {i}/>
         })
-
-    
 
     return(
         <div className = {gameStyles.gameScreen}>
@@ -148,7 +146,7 @@ function Game()
                     shadow-mapSize-height={2048}
                     shadow-mapSize-width={2048}
                 />
-                <Physics gravity = {[0,-100,0]} size = {100} friction = {100}>
+                <Physics>
                 <TileGrid/>
                 
                 <Block position = {P} grid = {grid}/>
