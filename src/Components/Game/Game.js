@@ -2,15 +2,15 @@ import * as THREE from 'three'
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import {useSpringRef} from "@react-spring/web"
 import React, {useState, useEffect, useRef} from 'react'
-import {Canvas, useFrame, useThree, extend} from "@react-three/fiber"
+import {Canvas, useFrame, useThree, extend , useLoader} from "@react-three/fiber"
 import gameStyles from "./Game.module.css"
 import {animated, useSpring} from "@react-spring/three"
 import {Physics, useBox} from "@react-three/cannon"
-import {Skybox2, Skybox3} from "./imageLoader.js"
-
+import {Skybox2, Skybox3, Skybox4} from "./imageLoader.js"
+import blocktexture from "../../Images/blocktexture.png"
 import BlockMovement from "./Movement.js"
 import Levels from "./levels.js"
-
+import { TextureLoader } from 'three/src/loaders/TextureLoader.js'
 extend({OrbitControls})
 
 function Controls(props) 
@@ -40,7 +40,7 @@ function SkyBox()
 {
     const {scene} = useThree();
     const loader = new THREE.CubeTextureLoader();
-    const texture = loader.load(Skybox2);
+    const texture = loader.load(Skybox4);
     scene.background = texture;
     return null
 }
@@ -70,6 +70,7 @@ function Tile(props)
 
 function Block(props)
 {
+    const texture_1 = useLoader(TextureLoader, blocktexture)
     const blockRef = useRef()
     const [blockDimensions, setBlockDimensions] = useState([10, 20, 10])
     var [blockProps, blockPosApi] = useSpring(() => 
@@ -94,7 +95,7 @@ function Block(props)
         <animated.boxBufferGeometry attach="geometry" args = {blockDimensions}/>
         <meshStandardMaterial
             attach = "material"
-            color = "red"
+            map = {texture_1}
             roughness = {0.1}
             metalness = {0.5}
         />
@@ -133,7 +134,7 @@ function Game()
 
                 <Controls target = {cameraCentre}/>
 
-                {/* <SkyBox/> */}
+                <SkyBox/>
 
                 {/* <fog attach="fog"/> */}
                 <ambientLight intensity = {0.2}/>
