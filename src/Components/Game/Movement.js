@@ -27,6 +27,51 @@ function IfKeyPressed(ref)
   return movement
 }
 
+function DropTest(orient, ref, grid, api)
+{
+    if (orient === ".")
+    {
+        if (Math.round(ref.current.position.x/10) < 0 || Math.round(ref.current.position.x/10) >= grid[0].length || Math.round(ref.current.position.z/10) < 0 || Math.round(ref.current.position.z/10) >=grid.length || grid[Math.round(ref.current.position.z/10)][Math.round(ref.current.position.x/10)] === "0")
+        {
+            api.start({pos: [ref.current.position.x, 
+                ref.current.position.y-50,
+                ref.current.position.z],
+        //  rotate: [0, 0, 0],
+        config: {duration: 3000}})
+        }
+    }
+
+    else if (orient === "|")
+    {
+        var p1 = [Math.round(ref.current.position.x/10), Math.round((ref.current.position.z-5)/10)]
+        var p2 = [Math.round(ref.current.position.x/10), Math.round((ref.current.position.z+5)/10)]
+        console.log(p1, p2)
+        if (p1[0] < 0 || p1[0] >=grid[0].length || p1[1] < 0 || p2[1] > grid.length || grid[p1[1]][p1[0]] === "0" || grid[p2[1]][p2[0]] === "0")
+        {
+            api.start({pos: [ref.current.position.x, 
+                ref.current.position.y-50,
+                ref.current.position.z],
+        //  rotate: [0, 0, 0],
+        config: {duration: 3000}})
+        }
+    }
+
+    else if (orient === "_")
+    {
+        var p1 = [Math.round((ref.current.position.x-5)/10), Math.round(ref.current.position.z/10)]
+        var p2 = [Math.round((ref.current.position.x+5)/10), Math.round(ref.current.position.z/10)]
+        console.log(p1, p2)
+        if (p1[2] < 0 || p1[1] >=grid.length || p1[0] < 0 || p2[0] > grid.length || grid[p1[1]][p1[0]] === "0" || grid[p2[1]][p2[0]] === "0")
+        {
+            api.start({pos: [ref.current.position.x, 
+                ref.current.position.y-50,
+                ref.current.position.z],
+        //  rotate: [0, 0, 0],
+        config: {duration: 3000}})
+        }
+
+    }
+}
 function MovementValues(orient, movement)
 {
         if (orient === ".")
@@ -113,14 +158,12 @@ function MovementValues(orient, movement)
         }
         return [dur1, pos1_1, posy_1, rot1_1, dur2, pos1_2, posy_2, rot1_2, orient]
 }
-function BlockMovement(ref, api, dims)
+function BlockMovement(ref, api, dims, grid)
 {
     var movement = IfKeyPressed()
-    if ((movement.right || movement.left) && ref.current.rotation.z*180/Math.PI === 0)
+    if ((movement.right || movement.left) && ref.current.rotation.z === 0 && ref.current.rotation.x ===0)
     {
-        // setLvl(2)
-        // console.log(lvl)
-        // setGrid(Levels[lvl][0])
+
         const [dur1, posx1, posy1, rotz1, dur2, posx2, posy2, rotz2, orient] = MovementValues(ref.current.orient, movement)
         api.start({
             config: {duration: dur1},
@@ -141,13 +184,15 @@ function BlockMovement(ref, api, dims)
                             Math.round(ref.current.position.y/5)*5,
                             ref.current.position.z],
                      rotate: [0, 0, 0],
-                    config: {duration: 0}})
+                    config: {duration: 0},
+                onRest: () => DropTest(ref.current.orient, ref, grid, api)})
             dims(ref.current.orient==="|"?[10, 10, 20]:ref.current.orient==="."?[10, 20, 10]:[20, 10, 10])
+            
             
         }, dur1+dur2-1)
     }
 
-    else if ((movement.up || movement.down) && Math.round(ref.current.rotation.x*180/Math.PI) % 90 === 0)
+    else if ((movement.up || movement.down) && ref.current.rotation.x === 0 && ref.current.rotation.z === 0)
     {
         const [dur1, posz1, posy1, rotx1, dur2, posz2, posy2, rotx2, orient] = MovementValues(ref.current.orient, movement)
         api.start({
@@ -164,13 +209,16 @@ function BlockMovement(ref, api, dims)
 
         setTimeout(()=>
         {
+            
             api.start({pos: [Math.round(ref.current.position.x/5)*5, 
                 Math.round(ref.current.position.y/5)*5,
                 ref.current.position.z],
                 rotate: [0, 0, 0],
-        config: {duration: 0}})
+        config: {duration: 0},
+    onRest: ()=> DropTest(ref.current.orient, ref, grid, api)})
+        // console.log(ref.current.position)
             dims(ref.current.orient==="|"?[10, 10, 20]:ref.current.orient==="."?[10, 20, 10]:[20, 10, 10])
-
+            
         }, dur1+dur2-1)
     }
 }

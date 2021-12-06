@@ -79,7 +79,7 @@ function Block(props)
         orient: ".",
     }))
 
-    BlockMovement(blockRef, blockPosApi, setBlockDimensions)
+    BlockMovement(blockRef, blockPosApi, setBlockDimensions, props.grid)
 
     return(<animated.mesh 
         ref = {blockRef} 
@@ -133,7 +133,7 @@ function Game()
 
                 <Controls target = {cameraCentre}/>
 
-                <SkyBox/>
+                {/* <SkyBox/> */}
 
                 {/* <fog attach="fog"/> */}
                 <ambientLight intensity = {0.2}/>
