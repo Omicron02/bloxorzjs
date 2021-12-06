@@ -6,8 +6,8 @@ function Firstpage()
 {
 	const buttonContent = [
         { text: "Play Game", link: "login" },
+        { text: "Instructions", link: "instruction" },
         { text: "Leaderboard", link: "leaderboard" },
-        { text: "Feedback", link: "feedback" },
         { text: "Credits", link: "credits" }
 	]
 

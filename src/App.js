@@ -4,7 +4,7 @@ import Firstpage from "./Components/Firstpage/Firstpage.js"
 import Card from "./Components/Card/Card.js"
 import Signup from "./Components/Signup/Signup.js"
 import Leaderboard from "./Components/Leaderboard/leaderboard.js"
-
+import Instruction from "./Components/Instructions/Instructions.js"
 function App()
 {
     return (
@@ -15,6 +15,8 @@ function App()
                 <Route path = "/credits" element = {<Card/>}/>
 
                 <Route path = "/login" element = {<Signup/>}/>
+
+                <Route path = "/instruction" element = {<Instruction/>}/>
 
                 <Route path = "/leaderboard" element = {<Leaderboard/>}/>
             </Routes>
