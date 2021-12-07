@@ -40,7 +40,7 @@ function SkyBox()
 {
     const {scene} = useThree();
     const loader = new THREE.CubeTextureLoader();
-    const texture = loader.load(Skybox3);
+    const texture = loader.load(Skybox2);
     scene.background = texture;
     return null
 }
@@ -136,7 +136,7 @@ function Game()
             }}>
 
                 <Controls target = {cameraCentre}/>
-                {/* <SkyBox/> */}
+                <SkyBox/>
               
 
                 {/* <fog attach="fog"/> */}
