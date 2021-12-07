@@ -4,20 +4,26 @@ import {useFrame} from "@react-three/fiber"
 import * as THREE from "three"
 import { Vector3 } from "three"
 import Levels from "./levels"
+
+
 const keys = { KeyW: "up", KeyS: "down", KeyA: "left", KeyD: "right"}
 
 const moveFieldByKey = key => keys[key]
 
-function IfKeyPressed(ref)
+function IfKeyPressed(win, dead)
 {
     const [movement, setMovement] = useState({ up: false, down: false, left: false, right: false})
 
-    const handleKeyDown = event => setMovement(move => ({ ...move, [moveFieldByKey(event.code)]: true }))
+    const handleKeyDown = event => {
+        if (!win && !dead)
+        setMovement(move => ({ ...move, [moveFieldByKey(event.code)]: true }))
+    }
     const handleKeyUp = event => setMovement(move => ({ ...move, [moveFieldByKey(event.code)]: false }))
 
-        useEffect(() => {    
+        useEffect(() => {
         document.addEventListener("keydown", handleKeyDown)
         document.addEventListener("keyup", handleKeyUp)
+        
         return () => {
         document.removeEventListener("keydown", handleKeyDown)
         document.removeEventListener("keyup", handleKeyUp)
@@ -27,17 +33,21 @@ function IfKeyPressed(ref)
   return movement
 }
 
-function DropTest(orient, ref, grid, api)
+function DropTest(orient, ref, grid, api, Nav, win, dead, setDead, setWin)
 {
+    // var nav = useNavigate()
     if (orient === ".")
     {
+        setDead(true)
         if (Math.round(ref.current.position.x/10) < 0 || Math.round(ref.current.position.x/10) >= grid[0].length || Math.round(ref.current.position.z/10) < 0 || Math.round(ref.current.position.z/10) >=grid.length || grid[Math.round(ref.current.position.z/10)][Math.round(ref.current.position.x/10)] === "0")
         {
+
             api.start({pos: [ref.current.position.x, 
                 ref.current.position.y-50,
                 ref.current.position.z],
         //  rotate: [0, 0, 0],
-        config: {duration: 3000}})
+        config: {duration: 3000},
+            onRest: () => Nav("dead")})
         }
     }
 
@@ -117,7 +127,6 @@ function MovementValues(orient, movement)
                 var rot1_2 = rot1_1
                 orient = "_"
             }
-            
         }
 
         else if (orient === "|")
@@ -158,12 +167,13 @@ function MovementValues(orient, movement)
         }
         return [dur1, pos1_1, posy_1, rot1_1, dur2, pos1_2, posy_2, rot1_2, orient]
 }
-function BlockMovement(ref, api, dims, grid)
+
+function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin)
 {
+    
     var movement = IfKeyPressed()
     if ((movement.right || movement.left) && ref.current.rotation.z === 0 && ref.current.rotation.x ===0)
     {
-
         const [dur1, posx1, posy1, rotz1, dur2, posx2, posy2, rotz2, orient] = MovementValues(ref.current.orient, movement)
         api.start({
             config: {duration: dur1},
@@ -185,7 +195,7 @@ function BlockMovement(ref, api, dims, grid)
                             ref.current.position.z],
                      rotate: [0, 0, 0],
                     config: {duration: 0},
-                onRest: () => DropTest(ref.current.orient, ref, grid, api)})
+                onRest: () => DropTest(ref.current.orient, ref, grid, api, Nav, win, dead, setDead, setWin)})
             dims(ref.current.orient==="|"?[10, 10, 20]:ref.current.orient==="."?[10, 20, 10]:[20, 10, 10])
             
             
@@ -215,7 +225,7 @@ function BlockMovement(ref, api, dims, grid)
                 ref.current.position.z],
                 rotate: [0, 0, 0],
         config: {duration: 0},
-    onRest: ()=> DropTest(ref.current.orient, ref, grid, api)})
+    onRest: ()=> DropTest(ref.current.orient, ref, grid, api, Nav, win, dead, setDead, setWin)})
         // console.log(ref.current.position)
             dims(ref.current.orient==="|"?[10, 10, 20]:ref.current.orient==="."?[10, 20, 10]:[20, 10, 10])
             

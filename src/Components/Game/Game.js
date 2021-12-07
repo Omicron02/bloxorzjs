@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import {useNavigate} from "react-router-dom"
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls"
 import React, {useState, useRef, Suspense} from 'react'
 import {Canvas, useFrame, useThree, extend , useLoader} from "@react-three/fiber"
@@ -79,7 +80,7 @@ function Block(props)
         orient: ".",
     }))
 
-    BlockMovement(blockRef, blockPosApi, setBlockDimensions, props.grid)
+    BlockMovement(blockRef, blockPosApi, setBlockDimensions, props.grid, props.Nav, props.win, props.dead, props.setDead, props.setWin)
 
     return(<animated.mesh 
         ref = {blockRef} 
@@ -102,7 +103,10 @@ function Block(props)
 }
   
 function Game() 
-{ 
+{
+    const [win, setWin] = useState(0)
+    const [dead, setDead] = useState(0)
+    var Nav = useNavigate()
     const [grid, P] = Levels(1)
     const cameraCentre = new THREE.Vector3(grid[0].length*5, 0, grid.length*5)
 
@@ -132,7 +136,7 @@ function Game()
 
                 <Controls target = {cameraCentre}/>
 
-                <SkyBox/>
+                {/* <SkyBox/> */}
 
                 {/* <fog attach="fog"/> */}
                 <ambientLight intensity = {0.2}/>
@@ -149,7 +153,7 @@ function Game()
                 <Physics>
                 <TileGrid/>
                 
-                <Block position = {P} grid = {grid}/>
+                <Block position = {P} grid = {grid} Nav = {Nav} win = {win} dead = {dead} setWin = {setWin} setDead = {setDead}/>
                 </Physics>
             </Canvas>
         </div>

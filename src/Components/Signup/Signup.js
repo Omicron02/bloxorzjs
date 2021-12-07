@@ -4,9 +4,9 @@ import tw from '../../Images/Signup/tw.png'
 import gp from '../../Images/Signup/gp.png'
 import {useState} from "react"
 import axios from "axios"
-import {Routes, Navigate} from "react-router-dom"
+import {Routes, useNavigate} from "react-router-dom"
 function Signup({setUser}){
-
+    var Nav = useNavigate()
     const [btnpos, btnposStyle] = useState(signStyles.btnpos1)
     const [login, loginStyle] = useState(signStyles.login1)
     const [register, registerStyle] = useState(signStyles.register1)
@@ -25,11 +25,16 @@ function Signup({setUser}){
         axios.post("http://localhost:4000/api/readDB", registerData).then( res => 
         {
             if (!res.data)
-            axios.post("http://localhost:4000/api/writeDB", registerData)
+            {
+                setUser(registerData.username)
+                localStorage.setItem("user", registerData.username)
+                axios.post("http://localhost:4000/api/writeDB", registerData)
+                registerClick()
+                Nav("success")
+            } 
             else
             setUsernameTaken("Username has been taken!")
         })
-        registerClick()
         
     }
 
@@ -48,8 +53,11 @@ function Signup({setUser}){
             else
             {
                 setUser(loginData.username)
+                localStorage.setItem("user", loginData.username)
                 loginClick()
-                return <Navigate to = "/game"/>
+                
+                Nav("success")
+                // console.log(history)
                 
             }
             

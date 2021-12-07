@@ -10,7 +10,7 @@ import Game from "./Components/Game/Game.js"
 
 function App()
 {
-    const [user, setUser] = useState("")
+    const [user, setUser] = useState(localStorage.getItem('user')?localStorage.getItem('user'):"")
     return (
         <Router>
             <Routes>
@@ -18,9 +18,13 @@ function App()
 
                 <Route path = "/credits" element = {<Card/>}/>
 
-                <Route path = "/game" element = {user?<Game/>:<Navigate to = "/login" />}/>
+                <Route exact path = "/game" element = {user?<Game/>:<Navigate to = "/login" />}/>
 
-                <Route path = "/login" element = {<Signup setUser = {setUser}/>}/>
+                <Route exact path = "/game/dead" element = {<Navigate to = "/game"/>}/>
+
+                <Route exact path = "/login" element = {<Signup setUser = {setUser}/>}/>
+                
+                <Route exact path = "/login/success" element = {<Navigate to = "/game" />}/>
 
                 <Route path = "/instruction" element = {<Instruction/>}/>
 
