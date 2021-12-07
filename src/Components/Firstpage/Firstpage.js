@@ -2,6 +2,7 @@ import fpStyles from "./Firstpage.module.css"
 import {Link} from "react-router-dom";
 import BloxorzImg from "../../Images/bloxorz.png"
 
+
 function Firstpage()
 {
 	const buttonContent = [
@@ -21,13 +22,23 @@ function Firstpage()
 
 	return(
         <div className = {fpStyles.firstpage}>
-            <div className = {fpStyles.components}>
-                <img className={fpStyles.imagehead} src={BloxorzImg} alt="BloxorzLogo"/>
-
-                <br/><br/><br/><br/><br/><br/><br/><br/>
-
-                <p>{buttonLinks}</p>
+            <div className={fpStyles.dropdown}>
+                <button className={fpStyles.dropbtn}>Profile</button>
+                
+                <div className={fpStyles.dropmenu}>
+                    <p>TheP24</p>
+                    <hr/>
+                    <a href="#">Logout</a>
+                </div>
             </div>
+            <div className = {fpStyles.components}>
+            
+                    <img className={fpStyles.imagehead} src={BloxorzImg} alt="BloxorzLogo"/>
+
+                    <br/><br/><br/><br/><br/><br/><br/><br/>
+
+                    <p>{buttonLinks}</p>
+                </div>
         </div>
 	)   
 }
