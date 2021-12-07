@@ -17,7 +17,10 @@
 .tableHeader
 {
     font-size: 30px;
+    
+    background: radial-gradient(circle,#4dff03,#00d0ff);
 }
+
 .tableRow
 {
     font-size: 20px;
@@ -26,9 +29,17 @@
 {
     background: linear-gradient(90deg, #4dff03, #00d0ff);
 }
+.tableRow:nth-child(even):hover
+{
+    background: linear-gradient(90deg, #031cff, #ff0000);
+}
 .tableRow:nth-child(odd)
 {
      background: linear-gradient(270deg, #4dff03, #00d0ff);
+}
+.tableRow:nth-child(odd):hover
+{
+    background: linear-gradient(90deg, #ff0000, #031cff);
 }
 
 .rankData

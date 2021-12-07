@@ -28,6 +28,7 @@ function Leaderboard()
                         <th className = {lbStyles.moveData}> Moves </th>
                     </tr>
                 </thead>
+                <br/>
                 <tbody>
                     {tableDataMap}
                 </tbody>
