@@ -11,7 +11,7 @@ function Instruction(){
                 <Tilt className={instyle.container}>
                     <div className={instyle.card}>
                         <div className={instyle.content}>
-                            <h2>INFO</h2>
+                            <h2></h2>
                             <br/><br/><br/><br/><br/>
                             <h3>Instructions</h3>
                             <br/>
