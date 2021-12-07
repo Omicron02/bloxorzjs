@@ -80,7 +80,7 @@ function Block(props)
         orient: ".",
     }))
 
-    BlockMovement(blockRef, blockPosApi, setBlockDimensions, props.grid, props.Nav, props.win, props.dead, props.setDead, props.setWin)
+    BlockMovement(blockRef, blockPosApi, setBlockDimensions, props.grid, props.Nav, props.win, props.dead, props.setDead, props.setWin, props.moves, props.setMoves)
 
     return(<animated.mesh 
         ref = {blockRef} 
@@ -106,6 +106,7 @@ function Game()
 {
     const [win, setWin] = useState(0)
     const [dead, setDead] = useState(0)
+    const [moves, setMoves] = useState(0)
     var Nav = useNavigate()
     const [grid, P] = Levels(1)
     const cameraCentre = new THREE.Vector3(grid[0].length*5, 0, grid.length*5)
@@ -153,7 +154,7 @@ function Game()
                 <Physics>
                 <TileGrid/>
                 
-                <Block position = {P} grid = {grid} Nav = {Nav} win = {win} dead = {dead} setWin = {setWin} setDead = {setDead}/>
+                <Block position = {P} grid = {grid} moves = {moves} setMoves = {setMoves} Nav = {Nav} win = {win} dead = {dead} setWin = {setWin} setDead = {setDead}/>
                 </Physics>
             </Canvas>
         </div>

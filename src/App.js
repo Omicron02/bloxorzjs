@@ -22,9 +22,11 @@ function App()
 
                 <Route exact path = "/game/dead" element = {<Navigate to = "/game"/>}/>
 
+                <Route exact path = "/game/win" element = {<Navigate to = "/leaderboard"/>}/>
+
                 <Route exact path = "/login" element = {<Signup setUser = {setUser}/>}/>
                 
-                <Route exact path = "/login/success" element = {<Navigate to = "/game" />}/>
+                <Route exact path = "/login/success" element = {user?<Navigate to = "/game" />:<Navigate to = "/login" />}/>
 
                 <Route path = "/instruction" element = {<Instruction/>}/>
 

@@ -4,7 +4,7 @@ let infoSchema = new mongoose.Schema
 ({
     name: {type: String, unique: true},
     password: {type: String},
-    moves: {type: Number, default: 0}, 
+    moves: {type: Number, default: 999}, 
     
 })
 

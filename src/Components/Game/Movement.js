@@ -1,10 +1,5 @@
 import {useEffect, useState} from "react"
-import {useChain} from "@react-spring/three"
-import {useFrame} from "@react-three/fiber"
-import * as THREE from "three"
-import { Vector3 } from "three"
-import Levels from "./levels"
-
+import axios from "axios"
 
 const keys = { KeyW: "up", KeyS: "down", KeyA: "left", KeyD: "right"}
 
@@ -33,21 +28,30 @@ function IfKeyPressed(win, dead)
   return movement
 }
 
-function DropTest(orient, ref, grid, api, Nav, win, dead, setDead, setWin)
+function DropTest(orient, ref, grid, api, Nav, win, dead, setDead, setWin, moves)
 {
     // var nav = useNavigate()
     if (orient === ".")
     {
-        setDead(true)
         if (Math.round(ref.current.position.x/10) < 0 || Math.round(ref.current.position.x/10) >= grid[0].length || Math.round(ref.current.position.z/10) < 0 || Math.round(ref.current.position.z/10) >=grid.length || grid[Math.round(ref.current.position.z/10)][Math.round(ref.current.position.x/10)] === "0")
         {
+            setWin(true)
 
             api.start({pos: [ref.current.position.x, 
-                ref.current.position.y-50,
+                ref.current.position.y+150,
                 ref.current.position.z],
         //  rotate: [0, 0, 0],
         config: {duration: 3000},
-            onRest: () => Nav("dead")})
+            onRest: () => {
+                const user = localStorage.getItem("user")
+                axios.post("http://localhost:4000/api/readDB", {username: user, moves: moves})
+                Nav("win")}
+            })
+        }
+
+        if (grid[Math.round(ref.current.position.z/10)][Math.round(ref.current.position.x/10)] === "9")
+        {
+            
         }
     }
 
@@ -62,7 +66,8 @@ function DropTest(orient, ref, grid, api, Nav, win, dead, setDead, setWin)
                 ref.current.position.y-50,
                 ref.current.position.z],
         //  rotate: [0, 0, 0],
-        config: {duration: 3000}})
+        config: {duration: 3000},
+        onRest: () => Nav("dead")})
         }
     }
 
@@ -77,7 +82,8 @@ function DropTest(orient, ref, grid, api, Nav, win, dead, setDead, setWin)
                 ref.current.position.y-50,
                 ref.current.position.z],
         //  rotate: [0, 0, 0],
-        config: {duration: 3000}})
+        config: {duration: 3000},
+        onRest: () => Nav("dead")})
         }
 
     }
@@ -168,12 +174,13 @@ function MovementValues(orient, movement)
         return [dur1, pos1_1, posy_1, rot1_1, dur2, pos1_2, posy_2, rot1_2, orient]
 }
 
-function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin)
+function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin, moves, setMoves)
 {
     
     var movement = IfKeyPressed()
     if ((movement.right || movement.left) && ref.current.rotation.z === 0 && ref.current.rotation.x ===0)
     {
+        setMoves(moves+1)
         const [dur1, posx1, posy1, rotz1, dur2, posx2, posy2, rotz2, orient] = MovementValues(ref.current.orient, movement)
         api.start({
             config: {duration: dur1},
@@ -195,7 +202,7 @@ function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin)
                             ref.current.position.z],
                      rotate: [0, 0, 0],
                     config: {duration: 0},
-                onRest: () => DropTest(ref.current.orient, ref, grid, api, Nav, win, dead, setDead, setWin)})
+                onRest: () => DropTest(ref.current.orient, ref, grid, api, Nav, win, dead, setDead, setWin, moves)})
             dims(ref.current.orient==="|"?[10, 10, 20]:ref.current.orient==="."?[10, 20, 10]:[20, 10, 10])
             
             
@@ -204,6 +211,7 @@ function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin)
 
     else if ((movement.up || movement.down) && ref.current.rotation.x === 0 && ref.current.rotation.z === 0)
     {
+        setMoves(moves+1)
         const [dur1, posz1, posy1, rotx1, dur2, posz2, posy2, rotx2, orient] = MovementValues(ref.current.orient, movement)
         api.start({
             config: {duration: dur1},
@@ -219,13 +227,12 @@ function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin)
 
         setTimeout(()=>
         {
-            
             api.start({pos: [Math.round(ref.current.position.x/5)*5, 
                 Math.round(ref.current.position.y/5)*5,
                 ref.current.position.z],
                 rotate: [0, 0, 0],
         config: {duration: 0},
-    onRest: ()=> DropTest(ref.current.orient, ref, grid, api, Nav, win, dead, setDead, setWin)})
+    onRest: ()=> DropTest(ref.current.orient, ref, grid, api, Nav, win, dead, setDead, setWin, moves)})
         // console.log(ref.current.position)
             dims(ref.current.orient==="|"?[10, 10, 20]:ref.current.orient==="."?[10, 20, 10]:[20, 10, 10])
             

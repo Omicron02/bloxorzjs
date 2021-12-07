@@ -21,4 +21,11 @@ router.get("/readallDB" , async(req,res)=>
     .catch( e => console.log(e))
 })
 
+router.post("/updateDB", async (req, res) =>
+{
+    await infoSchema.findOneAndUpdate({name: req.body.username}, {$set: {moves: req.body.moves}})
+    .then( () => console.log("Moves updated"))
+    .catch( e => console.log(e))
+})
+
 export default router
