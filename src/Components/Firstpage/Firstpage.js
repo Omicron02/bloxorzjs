@@ -3,7 +3,8 @@ import {Link} from "react-router-dom";
 import BloxorzImg from "../../Images/bloxorz.png"
 
 
-function Firstpage({user})
+
+function Firstpage({user,setUser})
 {
 	const buttonContent = [
         { text: "Play Game", link: "game" },
@@ -19,6 +20,13 @@ function Firstpage({user})
 	        {buttonSpans}
 	        {item.text}
 	    </Link>)
+    
+    const logout = ()=>{
+        setUser("")
+        localStorage.setItem("user","")
+        
+    }
+
 
 	return(
         <div className = {fpStyles.firstpage}>
@@ -26,9 +34,9 @@ function Firstpage({user})
                 <button className={fpStyles.dropbtn}>Profile</button>
                 
                 <div className={fpStyles.dropmenu}>
-                    <p>TheP24</p>
+                    <p>{user}</p>
                     <hr/>
-                    <a href="#">Logout</a>
+                    <a onClick={logout}>Logout</a>
                 </div>
             </div>}
             <div className = {fpStyles.components}>

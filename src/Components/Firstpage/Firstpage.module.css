@@ -48,7 +48,7 @@
 }
 .dropmenu a:hover {background-color: #ddd;}
 .dropdown:hover .dropmenu {display: block;}
-.dropdown:hover .dropbtn {background-color: #ff0eeb;}
+.dropdown:hover .dropbtn {background-color: #d009f8;}
 .components
 {
     display:flex; 
