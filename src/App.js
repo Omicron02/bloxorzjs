@@ -14,7 +14,7 @@ function App()
     return (
         <Router>
             <Routes>
-                <Route exact path = "/" element = {<Firstpage/>}/>
+                <Route exact path = "/" element = {<Firstpage user={user}/>}/>
 
                 <Route path = "/credits" element = {<Card/>}/>
 

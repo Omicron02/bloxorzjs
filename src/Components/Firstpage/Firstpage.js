@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import BloxorzImg from "../../Images/bloxorz.png"
 
 
-function Firstpage()
+function Firstpage({user})
 {
 	const buttonContent = [
         { text: "Play Game", link: "game" },
@@ -22,7 +22,7 @@ function Firstpage()
 
 	return(
         <div className = {fpStyles.firstpage}>
-            <div className={fpStyles.dropdown}>
+            {user && <div className={fpStyles.dropdown}>
                 <button className={fpStyles.dropbtn}>Profile</button>
                 
                 <div className={fpStyles.dropmenu}>
@@ -30,7 +30,7 @@ function Firstpage()
                     <hr/>
                     <a href="#">Logout</a>
                 </div>
-            </div>
+            </div>}
             <div className = {fpStyles.components}>
             
                     <img className={fpStyles.imagehead} src={BloxorzImg} alt="BloxorzLogo"/>
