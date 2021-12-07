@@ -1,6 +1,7 @@
 import lbStyles from "./Leaderboard.module.css"
 import axios from "axios"
 import {useState} from 'react'
+import {Link} from "react-router-dom"
 function Leaderboard()
 {
     const [tableData, setTableData]=useState([])
@@ -33,6 +34,9 @@ function Leaderboard()
                     {tableDataMap}
                 </tbody>
             </table>
+            <Link to= "/">
+            <button className={lbStyles.btn}>Homepage</button>
+            </Link>
         </div>
     )
 }

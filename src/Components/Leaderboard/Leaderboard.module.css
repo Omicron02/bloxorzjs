@@ -54,4 +54,28 @@
 {
     padding: 5px 100px;
 }
+.btn
+{
+background: linear-gradient(270deg, #4dff03, #00d0ff);
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius:5px;
+}
+.btn:hover
+{
+background: linear-gradient(90deg, #031cff, #ff0000);
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius:5px;
+}
 
