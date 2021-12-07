@@ -71,7 +71,7 @@ function DropTest(orient, ref, grid, api, Nav, win, dead, setDead, setWin, moves
     {
         var p1 = [Math.round(ref.current.position.x/10), Math.round((ref.current.position.z-5)/10)]
         var p2 = [Math.round(ref.current.position.x/10), Math.round((ref.current.position.z+5)/10)]
-        console.log(p1, p2)
+        
         if (p1[0] < 0 || p1[0] >=grid[0].length || p1[1] < 0 || p2[1] >=grid.length || grid[p1[1]][p1[0]] === "0" || grid[p2[1]][p2[0]] === "0")
         {
             api.start({pos: [ref.current.position.x, 
@@ -87,7 +87,7 @@ function DropTest(orient, ref, grid, api, Nav, win, dead, setDead, setWin, moves
     {
         var p1 = [Math.round((ref.current.position.x-5)/10), Math.round(ref.current.position.z/10)]
         var p2 = [Math.round((ref.current.position.x+5)/10), Math.round(ref.current.position.z/10)]
-        console.log(p1, p2)
+        
         if (p1[1] < 0 || p1[1] >= grid.length || p1[0] < 0 || p2[0] >= grid[0].length || grid[p1[1]][p1[0]] === "0" || grid[p2[1]][p2[0]] === "0")
         {
             api.start({pos: [ref.current.position.x, 
@@ -211,7 +211,7 @@ function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin, mo
         setTimeout(()=>
         {
             setMoves(moves+1)
-            console.log(moves)
+            
             api.start({pos: [Math.round(ref.current.position.x/5)*5, 
                             Math.round(ref.current.position.y/5)*5,
                             ref.current.position.z],
@@ -244,7 +244,7 @@ function BlockMovement(ref, api, dims, grid, Nav, win, dead, setDead, setWin, mo
         setTimeout(()=>
         {
             setMoves(moves+1)
-            console.log(moves)
+            
             api.start({pos: [Math.round(ref.current.position.x/5)*5, 
                 Math.round(ref.current.position.y/5)*5,
                 ref.current.position.z],

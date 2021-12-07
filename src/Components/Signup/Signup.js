@@ -106,6 +106,7 @@ function Signup({setUser}){
                         placeholder="User Id" 
                         required 
                     />
+                    <br/><br/>
                     <input type="password" 
                         id="password" 
                         onChange = {event => {setPassword(event.target.value); setInvalidCred("")}} 
@@ -116,7 +117,8 @@ function Signup({setUser}){
                         required 
                     />
 
-                    <input type="checkbox" className={signStyles.checkbox} /><span className = {signStyles.span}>Remember Password</span>
+                    {/* <input type="checkbox" className={signStyles.checkbox} /><span className = {signStyles.span}>Remember Password</span> */}
+                    <br/><br/><br/><br/>
                     <button type="submit" className={signStyles.submitbtn}>Login</button>
                     <br/><br/>
                     <p className = {signStyles.regError}>{invalidCred}</p>
@@ -133,6 +135,7 @@ function Signup({setUser}){
                         placeholder="User Id" 
                         required
                     />
+                    <br/><br/>
                     <input type="password" 
                         id="regpassword" 
                         onChange = {event => setPassword(event.target.value)} 
@@ -141,7 +144,8 @@ function Signup({setUser}){
                         placeholder="Enter Password" 
                         required 
                     />
-                    <input type="checkbox" className={signStyles.checkbox} /><span className = {signStyles.span}>Remember Password</span>
+                    {/* <input type="checkbox" className={signStyles.checkbox} /><span className = {signStyles.span}>Remember Password</span> */}
+                    <br/><br/><br/><br/>
                     <button type="submit" className={signStyles.submitbtn}>Register</button>
                     <br/><br/>
                     <p className = {signStyles.regError}>{usernameTaken}</p>

@@ -40,7 +40,7 @@ function SkyBox()
 {
     const {scene} = useThree();
     const loader = new THREE.CubeTextureLoader();
-    const texture = loader.load(Skybox2);
+    const texture = loader.load(Skybox3);
     scene.background = texture;
     return null
 }
@@ -136,8 +136,8 @@ function Game()
             }}>
 
                 <Controls target = {cameraCentre}/>
-
                 {/* <SkyBox/> */}
+              
 
                 {/* <fog attach="fog"/> */}
                 <ambientLight intensity = {0.2}/>
@@ -155,6 +155,7 @@ function Game()
                 <TileGrid/>
                 
                 <Block position = {P} grid = {grid} moves = {moves} setMoves = {setMoves} Nav = {Nav} win = {win} dead = {dead} setWin = {setWin} setDead = {setDead}/>
+                
                 </Physics>
             </Canvas>
         </div>
